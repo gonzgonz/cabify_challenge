@@ -1,29 +1,20 @@
 # Cache settings
-proxy_cache_path /tmp/nginx levels=1:2 keys_zone=my_zone:10m inactive=60m;
+proxy_cache_path /tmp/nginx levels=1:2 keys_zone=cache_zone:10m inactive=60m;
 proxy_cache_key "$scheme$request_method$host$request_uri";
 
 # Proxy server settings
 server {
-
-    listen 80;
+    
+    listen {{ http_port }};
     server_name  127.0.0.1;
 
-    #ssl_certificate           /etc/nginx/challenge.crt;		# This is self signed for testing purposes
-    #ssl_certificate_key       /etc/nginx/challenge.key;		
-
-    #ssl on;
-    #ssl_session_cache  builtin:1000  shared:SSL:10m;
-    #ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
-    #ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
-    #ssl_prefer_server_ciphers on;
-
-    access_log            /var/log/nginx/cabify_public_api.log;
+    access_log  /var/log/nginx/{{ app_name }}.log;
 
     location / {
-        proxy_cache my_zone;
+        proxy_cache cache_zone;
         add_header X-Proxy-Cache $upstream_cache_status;
         proxy_cache_bypass  $http_cache_control;
        
-        proxy_pass https://cabify.com/api/regions;
+        proxy_pass {{ proxied_host }};
         }
 }
