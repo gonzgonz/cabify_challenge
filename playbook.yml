@@ -1,0 +1,27 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+  - name: Install nginx
+    apt: name=nginx update_cache=yes state=latest
+
+  - name: Remove default website
+    file: path=/etc/nginx/sites-enabled/default state=absent
+
+  - name: Create vhost configuration  
+    template: src=templates/proxy-cache.conf.j2 dest=/etc/nginx/sites-available/proxy-cache.conf owner=root group=root mode=0644
+  
+  - name: Enable website
+    file: path=/etc/nginx/sites-enabled/proxy-cache-conf src=/etc/nginx/sites-available/proxy-cache.conf state=link
+
+  - name: Create proxy-params
+    template: src=templates/proxy_params.j2 dest=/etc/nginx/proxy-params owner=root group=root mode=0644
+
+  - name: Copy SSL certificates 
+    copy: src=files/{{ item }} dest=/etc/nginx/
+    with_items:
+      - challenge.key
+      - challenge.crt
+
+  - name: Reload Config
+    service: name=nginx state=restarted
