@@ -1,0 +1,3 @@
+http_port: 80
+proxied_host: "https://cabify.com/api/regions"
+app_name: "cabify_public_api"
