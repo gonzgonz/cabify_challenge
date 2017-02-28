@@ -1,10 +1,6 @@
-# Cache settings
-proxy_cache_path /tmp/nginx levels=1:2 keys_zone=cache_zone:10m inactive=60m;
-proxy_cache_key "$scheme$request_method$host$request_uri";
-
 # Proxy server settings
 server {
-    
+
     listen 443;
     server_name  127.0.0.1;
 
@@ -13,13 +9,13 @@ server {
     ssl_certificate_key /etc/nginx/challenge.key;
     ssl_session_cache shared:SSL:10m;
 
-    access_log  /var/log/nginx/{{ app_name }}.log;
+    access_log  /var/log/nginx/{{ app_name }}_ssl.log;
 
     location / {
         proxy_cache cache_zone;
         add_header X-Proxy-Cache $upstream_cache_status;
         proxy_cache_bypass  $http_cache_control;
-       
+
         proxy_pass {{ proxied_host }};
         }
 }
