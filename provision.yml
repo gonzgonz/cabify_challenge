@@ -4,6 +4,9 @@
   vars_files:
     - vars/main.yml
   tasks:
+    - name: Install Fail2Ban     # Some common security tweaks
+      apt: name=fail2ban update_cache=yes state=latest
+
     - name: Install nginx
       apt: name=nginx update_cache=yes state=latest
 
@@ -23,13 +26,19 @@
       file: path=/etc/nginx/sites-enabled/proxy-ssl.conf src=/etc/nginx/sites-available/proxy-ssl.conf state=link
 
     - name: Create proxy-params
-      template: src=templates/proxy_params.j2 dest=/etc/nginx/proxy-params owner=root group=root mode=0644
+      template: src=templates/proxy_params.j2 dest=/etc/nginx/proxy_params owner=root group=root mode=0644
 
     - name: Copy SSL certificates 
       copy: src=files/{{ item }} dest=/etc/nginx/
       with_items:
         - challenge.key
         - challenge.crt
+      register: new_certs
+
+    - name: Restart Nginx
+      service: name=nginx state=restarted
+      when: new_certs.changed
 
     - name: Reload Config
-      service: name=nginx state=restarted
+      service: name=nginx state=reloaded
+      
