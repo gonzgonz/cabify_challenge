@@ -12,8 +12,7 @@ Access the proxy server via http://localhost:8080 from your local browser.
 ## Test (HTTPS)
 
 HTTPS implementation is only added as a simple testing purpose. As Self signed certificates were used, please ignore the security
-warning. Access the https proxy server via https://localhost:8443 from your local browser. No redirection was implemented at this point,
-and no forced HTTP --> HTTPS either. Please ask if this is required for this challenge purposes.
+warning. Access the https proxy server via https://localhost:8443 from your local browser. No redirection was implemented at this point, however it could be added later on.
 
 ## Test Cache features
 
