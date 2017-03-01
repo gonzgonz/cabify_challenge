@@ -1,7 +1,6 @@
-# cabify_challenge
+# Vagrant + Ubuntu LTS + Ansible + Proxy Server + Static Content Cache + SSL  
 
-## This is a sample repo created by Gonzalo Arce for Cabify DevOps Challenge
-
+## This is a sample repo created by Gonzalo Arce. 
 1 - Clone This Repository
 
 2 - Run "vagrant up" from your command line (vagrant must be installed first)
@@ -19,7 +18,7 @@ and no forced HTTP --> HTTPS either. Please ask if this is required for this cha
 ## Test Cache features
 
 - Change the value of the var "proxied_host" in vars/main.yml, to try the static content caching, by using a different backend website instead of 
-the Cabify public API. And re-provision by running "vagrant provision". 
+the given public API. And re-provision by running "vagrant provision". 
 
 Then:
 
