@@ -3,7 +3,7 @@
 ## This is a sample repo created by Gonzalo Arce. No external roles or playbooks were used. Everything was set up from scratch for demonstration purposes.
 1 - Clone This Repository
 
-2 - Run "vagrant up" from your command line (vagrant must be installed first). 
+2 - Run "vagrant up" from your command line (just make sure you have Vagrant installed in your host). 
 
 3 - That's it! Nothing else is needed, you don't need to have Ansible set up on your local host. Worry-less out-of-the-box solution!
 
