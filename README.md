@@ -3,16 +3,18 @@
 ## This is a sample repo created by Gonzalo Arce. No external roles or playbooks were used. Everything was set up from scratch.
 1 - Clone This Repository
 
-2 - Run "vagrant up" from your command line (vagrant must be installed first)
+2 - Run "vagrant up" from your command line (vagrant must be installed first). 
+
+3 - That's it! Nothing else is needed, you don't need to have Ansible set up on your local host. Worry-less out-of-the-box solution!
 
 ## Test (HTTP)
 
-Access the proxy server via http://localhost:8080 from your local browser.
+Access the proxy server via http://localhost:8080 from your local browser (make sure you don't have port 8080 binded to something else).
 
 ## Test (HTTPS)
 
 HTTPS implementation is only added as a simple testing purpose. As Self signed certificates were used, please ignore the security
-warning. Access the https proxy server via https://localhost:8443 from your local browser. No redirection was implemented at this point, however it could be added later on.
+warning. Access the https proxy server via https://localhost:8443 from your local browser (make sure you don't have port 8443 binded to something else). No redirection was implemented at this point, however it could be added later on.
 
 ## Test Cache features
 
