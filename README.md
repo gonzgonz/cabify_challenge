@@ -1,6 +1,6 @@
 # Vagrant + Ubuntu LTS + Ansible + Nginx Proxy-Cache Server + Static Content Cache + SSL  
 
-## This is a sample repo created by Gonzalo Arce. 
+## This is a sample repo created by Gonzalo Arce. No external roles or playbooks were used. Everything was set up from scratch.
 1 - Clone This Repository
 
 2 - Run "vagrant up" from your command line (vagrant must be installed first)
