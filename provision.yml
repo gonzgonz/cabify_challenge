@@ -4,8 +4,7 @@
   vars_files:
     - vars/main.yml
   tasks:
-    - name: Install Fail2Ban     # Some common security tweaks
-      apt: name=fail2ban update_cache=yes state=latest
+    - include: tasks/common.yml
 
     - name: Install nginx
       apt: name=nginx update_cache=yes state=latest
