@@ -18,8 +18,10 @@ warning. Access the https proxy server via https://localhost:8443 from your loca
 
 ## Test Cache features
 
-- Change the value of the var "proxied_host" in vars/main.yml, to try the static content caching, by using a different backend website instead of 
-the given public API. And re-provision by running "vagrant provision". 
+- Change the value of the var "proxied_host" in vars/main.yml, to another website URL, to better test static content caching.
+- re-provision by running:
+
+$ vagrant provision 
 
 ## Then:
 
