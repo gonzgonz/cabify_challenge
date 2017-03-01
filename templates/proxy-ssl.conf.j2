@@ -15,7 +15,8 @@ server {
         proxy_cache cache_zone;
         add_header X-Proxy-Cache $upstream_cache_status;
         proxy_cache_bypass  $http_cache_control;
-
+        
+        include proxy_params
         proxy_pass {{ proxied_host }};
         }
 }
