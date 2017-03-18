@@ -1,6 +1,5 @@
 # Vagrant + Ubuntu LTS + Ansible + Nginx Proxy Server + Static Content Cache + SSL  
 
-## This is a sample repo created by Gonzalo Arce. No external roles or playbooks were used. Everything was set up from scratch for demonstration purposes.
 1 - Clone This Repository
 
 2 - Run "vagrant up" from your command line (just make sure you have Vagrant installed in your host). 
@@ -41,10 +40,6 @@ $ curl -X GET -I localhost:8080
 
 I hope you enjoy it!
 
-- This is tested to work out of the box and my aim was to deliver it Today, there is still room for enhancements and polishing, feel free to discuss further.
-
-
-- Gonzalo
 
 
 
